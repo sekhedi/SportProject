@@ -1,0 +1,28 @@
+<table class="table text-center">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">name</th>
+        <th scope="col">number</th>
+        <th scope="col">position</th>
+        <th scope="col">age</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of playersTab">
+        <td>{{p._id}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.number}}</td>
+        <td>{{p.position}}</td>
+        <td>{{p.age}}</td>
+        <td>
+          <button type="button" class="btn btn-success" (click)="goToInfo(p._id)">Display</button>
+          <button type="button" class="btn btn-info" (click)="goToEdit(p._id)">Edit</button>
+          <button type="button" class="btn btn-danger" (click)="deletePlayer(p._id)">Delete</button>
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
+

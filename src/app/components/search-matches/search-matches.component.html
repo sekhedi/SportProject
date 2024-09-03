@@ -1,0 +1,45 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-9 mx-auto text-center">
+        <h1 class="text-white">Search Matches</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="form-body container"  style="margin-left: 450px;">
+  <div class="row">
+      <div class="form-holder">
+          <div class="form-content">
+              <div class="form-items">
+                <h3 class="text-center">Search Today</h3>
+                <br>
+                <br>
+                  <form class="requires-validation" novalidate #searchForm="ngForm" (ngSubmit)="searchMatches()">
+                      <div class="col-md-12">
+                         <input class="form-control" type="number" [(ngModel)]="searchObj.scoreOne" [ngModelOptions]="{standalone:true}"  placeholder="Score One" required style="background-color:rgb(72, 45, 12);">
+                         
+                      </div>
+
+
+                     
+                      <div class="col-md-12">
+                        <input class="form-control" type="number"  [(ngModel)]="searchObj.scoreTwo" [ngModelOptions]="{standalone:true}"  placeholder="Score Two" required style="background-color:rgb(72, 45, 12);">
+                        
+                     </div>
+
+                      <div class="form-button mt-3 text-center">
+                          <button id="submit" type="submit" class="btn btn-primary" style="background-color: red;">Search</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div *ngFor="let m of matchesTabResult" > 
+  <div style="margin-bottom: 120px;">
+    <app-result [obj]="m" ></app-result>
+    <div *ngIf="matchesTabResult.length==0"> no matches Result</div>
+  </div>
+</div>

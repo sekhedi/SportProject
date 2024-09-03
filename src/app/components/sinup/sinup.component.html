@@ -1,0 +1,104 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-9 mx-auto text-center">
+          <h1 class="text-white">Register</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="form-body" style="margin-left: 450px;">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3>Register Today</h3>
+                    <p>Fill in the data below.</p>
+                    <form class="requires-validation" novalidate [formGroup]="signupForm">
+
+                        <div class="col-md-12">
+                           <input class="form-control" type="text" name="name" formControlName="firstName" placeholder="Full Name" required style="background-color:rgb(72, 45, 12);">
+                           <div *ngIf="signupForm.controls['firstName'].invalid && (signupForm.controls['firstName'].dirty||
+                             signupForm.controls['firstName'].touched)">
+                            <div *ngIf="signupForm.controls['firstName'].errors?.['required']" >firstName is required!</div>
+                           <div  *ngIf="signupForm.controls['firstName'].errors?.['minlength']">firstName must have at 3 chars!</div>
+                           </div>
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <input class="form-control" type="text" name="name" formControlName="lastName" placeholder="Last Name" required style="background-color:rgb(72, 45, 12);">
+                            <div *ngIf="signupForm.controls['lastName'].invalid && (signupForm.controls['lastName'].dirty||
+                             signupForm.controls['firstName'].touched)">
+                            <div *ngIf="signupForm.controls['lastName'].errors?.['required']" >lastName is required!</div>
+                           <div  *ngIf="signupForm.controls['lastName'].errors?.['minlength']">lastName must have at 5 chars!</div>
+                           </div>
+                         </div>
+                         <div class="col-md-12">
+                            <input class="form-control" type="text" name="name" formControlName="tel" placeholder="phone" required style="background-color:rgb(72, 45, 12);">
+                            <div *ngIf="signupForm.controls['tel'].invalid && (signupForm.controls['tel'].dirty||
+                             signupForm.controls['tel'].touched)">
+                            <div *ngIf="signupForm.controls['tel'].errors?.['required']" >phone number  is required!</div>
+                           <div  *ngIf="signupForm.controls['tel'].errors?.['minlength']">phone number have min at 6 chars!</div>
+                           <div  *ngIf="signupForm.controls['tel'].errors?.['maxlength']">phone number have max at 10 chars!</div>
+                           </div>
+                         </div>
+
+                        <div class="col-md-12">
+                            <input class="form-control" type="email" name="name" formControlName="email" placeholder="E-mail Address" required style="background-color:rgb(72, 45, 12);">
+                            <div>{{msg}}</div>
+                            <div *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].dirty||
+                             signupForm.controls['email'].touched)">
+                            <div *ngIf="signupForm.controls['email'].errors?.['required']" >email is required!</div>
+                           <div  *ngIf="signupForm.controls['email'].errors?.['email']">email format invalid!</div>
+                           </div>
+                           
+                        </div>
+
+                   
+
+
+                       <div class="col-md-12">
+                          <input class="form-control" type="password" name="name" formControlName="pwd" placeholder="Password" required style="background-color:rgb(72, 45, 12);">
+                          <div *ngIf="signupForm.controls['pwd'].invalid && (signupForm.controls['pwd'].dirty||
+                             signupForm.controls['pwd'].touched)">
+                            <div *ngIf="signupForm.controls['pwd'].errors?.['required']" >Password  is required!</div>
+                           <div  *ngIf="signupForm.controls['pwd'].errors?.['minlength']">Password have min at 6 chars!</div>
+                           <div  *ngIf="signupForm.controls['pwd'].errors?.['maxlength']">Password have max at 10 chars!</div>
+                           </div>
+                       </div>
+
+                       <div class="col-md-12">
+                        <input class="form-control" type="password" name="name" formControlName="confirmPwd" placeholder="confirm password" required style="background-color:rgb(72, 45, 12);">
+                         
+                      </div>
+                       <div class="col-md-12 mt-3">
+                        <label class="mb-3 mr-1" for="gender">Gender: </label>
+
+                        <input type="radio" class="btn-check" name="gender" id="male" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="male">Male</label>
+
+                        <input type="radio" class="btn-check" name="gender" id="female" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="female">Female</label>
+
+                        <input type="radio" class="btn-check" name="gender" id="secret" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="secret">Secret</label>
+                           
+                        </div>
+
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                      <label class="form-check-label">I confirm that all data are correct</label>
+                     <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
+                    </div>
+              
+
+                        <div class="form-button mt-3 text-center">
+                            <button id="submit" [disabled]="signupForm.invalid" type="submit" class="btn btn-primary" style="background-color: red;" (click)="signup()">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

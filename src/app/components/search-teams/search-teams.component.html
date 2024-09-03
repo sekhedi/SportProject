@@ -1,0 +1,61 @@
+
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-9 mx-auto text-center">
+          <h1 class="text-white">SearchTeam</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="form-body container" style="margin-left: 450px;">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3 class="text-center">Searchteam Today</h3>
+                    <p>Fill in the data below.</p>
+                    <br><br>
+                    <form class="requires-validation" novalidate #teamForm="ngForm" (ngSubmit)="searchTeam()">
+                        <div class="col-md-12">
+                           <input class="form-control" type="text" [(ngModel)]="team.name" [ngModelOptions]="{standalone:true}" name="name" placeholder="Full Name" required style="background-color:rgb(72, 45, 12);">
+                         
+                        </div>
+
+
+                       
+
+
+                       <div class="col-md-12">
+                          <input class="form-control" type="text" name="owner" [(ngModel)]="team.owner" [ngModelOptions]="{standalone:true}" placeholder="Owner" required style="background-color:rgb(72, 45, 12);">
+                           
+                       </div>
+
+                       <div class="col-md-12">
+                        <input class="form-control" type="text" [(ngModel)]="team.foundation" [ngModelOptions]="{standalone:true}" name="foundation" placeholder="Foundation" required style="background-color:rgb(72, 45, 12);">
+                         
+                       </div>
+                        <div class="form-button mt-3 text-center">
+                            <button id="submit" type="submit" class="btn btn-primary" style="background-color: red;">SEARCH</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" >
+  <div class="col-lg-6  " *ngFor="let t of teamsTabResult" >
+      <div class="custom-media d-flex " >
+          <div class="img mb-4">
+              <a href="single.html"><img src="assets/images/imageslogo.jpg" alt="Image" class="img-fluid"></a>
+          </div>
+          <div class="text" style="margin-left: 50px;">
+              <p>name: {{t.name}} </p>
+              <p>owner: {{t.owner}}</p>
+              <p>foundation: {{t.foundation}} </p>
+          </div>
+      </div>
+  </div>
+</div>
+
